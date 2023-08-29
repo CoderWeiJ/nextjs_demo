@@ -16,85 +16,6 @@ eslint-plugin-simple-import-sort: 自动修复的导入排序
 eslint-plugin-sonarjs: 用于ESLint的 SonarJS 规则，用于检测代码中的 bug
 ```
 
-
-```js
-// .eslintrc.js
-module.exports = {
-  root: true,
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-  },
-
-  settings: {
-    react: {
-      version: "detect",
-    },
-    "import/resolver": {
-      node: {
-        extensions: [".ts", ".tsx"],
-      },
-    },
-  },
-
-  plugins: ["@typescript-eslint"],
-  extends: [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb",
-    "prettier",
-    "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended",
-    "plugin:sonarjs/recommended",
-    "plugin:security/recommended"
-    // "plugin:react-hooks/recommended",
-  ],
-
-
-  rules: {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        extensions: [".ts", ".tsx", ".js", ".jsx"],
-      },
-    ],
-    "react/jsx-props-no-spreading": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        components: ["Link"],
-        specialLink: ["hrefLeft", "hrefRight"],
-        aspects: ["invalidHref", "preferButton"],
-      },
-    ],
-    "no-nested-ternary": "off",
-    "import/prefer-default-export": "off",
-  },
-}
-```
-
 # 安装prettier
 ```bash
 pnpm add -D prettier
@@ -117,7 +38,7 @@ module.exports = {
 
 # 安装stylelint
 ```bash
-pnpm add -D stylelint stylelint-config-standard stylelint-order 
+pnpm add -D stylelint stylelint-config-standard stylelint-order stylelint-config-standard-scss stylelint-config-recess-order stylelint-config-prettier stylelint-scss stylelint-config-recommended
 ```
 
 
