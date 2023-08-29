@@ -40,3 +40,6 @@ next-env.d.ts
 *.zip
 *.tgz
 *.7z
+
+
+.eslintcache

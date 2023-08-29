@@ -47,3 +47,8 @@ pnpm add -D stylelint stylelint-config-standard stylelint-order stylelint-config
 ```bash
 pnpm add -D  @commitlint/cli @commitlint/config-conventional lint-staged
 ```
+
+# 安装commit提交插件
+```bash
+pnpm add -D @commitlint/config-conventional @commitlint/cli
+```

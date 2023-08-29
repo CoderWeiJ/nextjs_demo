@@ -1,5 +1,5 @@
 const Home = () => {
-  return <main>你好</main>;
+  return <main>123</main>;
 };
 
 export default Home;
