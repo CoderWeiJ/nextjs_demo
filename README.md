@@ -1,34 +1,128 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+# 安装eslint
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm add -D eslint
+pnpm add -D '@typescript-eslint/eslint-plugin' eslint-config-airbnb eslint-config-prettier eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-security eslint-plugin-simple-import-sort eslint-plugin-sonarjs
+```
+```txt
+@typescript-eslint/eslint-plugin：提供 lint 规则的 ESLint 插件
+eslint-config-airbnb： Airbnb 提供的 .eslintrc 的共享配置
+eslint-config-prettier：关闭所有不必要或可能与Prettier冲突的规则。
+eslint-plugin-jsx-a11y：静态 AST 检查器
+eslint-plugin-prettier：将Prettier作为 ESLint 规则运行
+eslint-plugin-react：React 特定的 linting 规则
+eslint-plugin-react-hooks： ESLint 插件强制执行 Hooks 规则
+eslint-plugin-security：ESLint节点安全规则
+eslint-plugin-simple-import-sort: 自动修复的导入排序
+eslint-plugin-sonarjs: 用于ESLint的 SonarJS 规则，用于检测代码中的 bug
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```js
+// .eslintrc.js
+module.exports = {
+  root: true,
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  settings: {
+    react: {
+      version: "detect",
+    },
+    "import/resolver": {
+      node: {
+        extensions: [".ts", ".tsx"],
+      },
+    },
+  },
 
-## Learn More
+  plugins: ["@typescript-eslint"],
+  extends: [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:security/recommended"
+    // "plugin:react-hooks/recommended",
+  ],
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  rules: {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
+      },
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        components: ["Link"],
+        specialLink: ["hrefLeft", "hrefRight"],
+        aspects: ["invalidHref", "preferButton"],
+      },
+    ],
+    "no-nested-ternary": "off",
+    "import/prefer-default-export": "off",
+  },
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 安装prettier
+```bash
+pnpm add -D prettier
+```
 
-## Deploy on Vercel
+```js
+// .prettierrc.js
+module.exports = {
+    tabWidth: 4,
+    printWidth: 80,
+    endOfLine: "auto",
+    arrowParens: "avoid",
+    trailingComma: "es5",
+    semi: true,
+    useTabs: false,
+    singleQuote: false,
+    bracketSpacing: true,
+};
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 安装stylelint
+```bash
+pnpm add -D stylelint stylelint-config-standard stylelint-order 
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# 安装husky和lint-staged
+```bash
+pnpm add -D  @commitlint/cli @commitlint/config-conventional lint-staged
+```
